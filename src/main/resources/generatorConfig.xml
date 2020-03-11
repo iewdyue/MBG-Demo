@@ -1,0 +1,80 @@
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <classPathEntry
+            location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                                connectionURL="jdbc:mysql://192.168.5.135:3306/dbname?tinyInt1isBit=false&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true"
+                                userId="xxxx"
+                                password="xxxx"/>
+
+        <javaModelGenerator targetPackage="com.model" targetProject="src/main/java"/>
+
+                <sqlMapGenerator targetPackage="generator.xml"
+                                 targetProject="src/main/java">
+                    <property name="enableSubPackages" value="true"/>
+                </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.dao" targetProject="src/main/java"
+                             type="XMLMAPPER"
+        />
+        <table tableName="report_tasks"
+               enableSelectByExample="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false"
+               modelType="flat" >
+            <!-- 如果设置为true，生成的model类会直接使用column本身的名字，而不会再使用驼峰命名方法，比如BORN_DATE，生成的属性名字就是BORN_DATE,而不会是bornDate -->
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+    </context>
+<!--    <context id="my" targetRuntime="MyBatis3">-->
+<!--        <commentGenerator>-->
+<!--            <property name="suppressDate" value="false"/>-->
+<!--            <property name="suppressAllComments" value="true"/>-->
+<!--        </commentGenerator>-->
+
+<!--        <jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+<!--                        connectionURL="jdbc:mysql://192.168.5.135:3306/dsp3_main?characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true"-->
+<!--                        userId="openapi"-->
+<!--                        password="openapi"/>-->
+
+<!--        <javaModelGenerator targetPackage="com.test.generator.entity"-->
+<!--                            targetProject="src/main/java/com/test/generator">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--            <property name="trimStrings" value="true"/>-->
+<!--        </javaModelGenerator>-->
+
+<!--        <sqlMapGenerator targetPackage="com.test.generator.entity.xml"-->
+<!--                         targetProject="src/main/java/com/test/generator">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--        </sqlMapGenerator>-->
+
+<!--        <javaClientGenerator targetPackage="com.test.generator.mapper"-->
+<!--                             targetProject="src/main/java/com/test/generator" type="XMLMAPPER">-->
+<!--            <property name="enableSubPackages" value="true"/>-->
+<!--        </javaClientGenerator>-->
+
+<!--        &lt;!&ndash;<table tableName="T_FEE_AGTBILL" domainObjectName="FeeAgentBill"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false"/>&ndash;&gt;-->
+
+<!--        <table tableName="report_smart" domainObjectName="report_smart"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            &lt;!&ndash;<columnRenamingRule searchString="^D_"-->
+<!--                                replaceString=""/>&ndash;&gt;-->
+<!--        </table>-->
+
+<!--    </context>-->
+</generatorConfiguration>
